@@ -1,0 +1,12 @@
+{
+  "name": "huc-fest-donate",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "node scripts/test-donate-tracker.cjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
