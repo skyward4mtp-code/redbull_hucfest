@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>HÚC FEST / SKYWARD</title>
+    <title>HÚC FEST - SKYWARD</title>
     <link rel="stylesheet" href="/assets/css/donate-tracker.css" />
   </head>
   <body>
@@ -59,7 +59,7 @@
       </div>
       <div class="workspace">
         <!-- Booth vector nhiều lớp: mỗi data-part tương ứng một mốc gây quỹ -->
-        <section class="scene">
+        <section class="scene" id="booth-scene">
           <div class="scene-head">
             01 / BOOTH ĐANG THÀNH HÌNH
             <span>● LIVE FUNDING</span>
@@ -341,9 +341,11 @@
               />
             </g>
           </svg>
+          <!-- Chỉ hiện khi tổng donate đạt hoặc vượt target. -->
+          <div id="completion-message" class="completion-message" role="status" aria-live="polite" hidden></div>
           <div id="build-state" class="scene-caption">Đang tải tiến độ…</div>
           <p class="disclaimer">
-            MMô hình minh họa theo thiết kế booth. Các phần hiện dần theo mốc gây quỹ, không phải tiến độ thi công thực tế hay xác nhận thi công.
+            Mô hình minh họa theo thiết kế booth. Các phần hiện dần theo mốc gây quỹ, không phải tiến độ thi công thực tế hay xác nhận thi công.
           </p>
         </section>
         <!-- Tổng donate, target và mốc tiếp theo -->
