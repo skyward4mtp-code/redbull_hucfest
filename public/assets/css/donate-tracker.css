@@ -483,3 +483,34 @@ button:focus-visible {
     font-size: 13px;
   }
 }
+
+/* ẢNH THIẾT KẾ Ở ĐẦU TRANG */
+.booth-preview {
+  margin: 0 0 24px;
+  overflow: hidden;
+  border: 1px solid #33415a;
+  background: #0c1422;
+}
+.booth-preview a {
+  display: block;
+}
+.booth-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.booth-preview p {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 14px 18px;
+  color: #b6ceff;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.booth-preview p span {
+  color: #8d9bb5;
+  letter-spacing: 0;
+}
