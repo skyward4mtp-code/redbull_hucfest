@@ -497,7 +497,9 @@ button:focus-visible {
 .booth-preview img {
   display: block;
   width: 100%;
-  height: auto;
+  height: clamp(180px, 30vw, 340px);
+  object-fit: cover;
+  object-position: center 44%;
 }
 .booth-preview p {
   display: flex;
@@ -513,4 +515,38 @@ button:focus-visible {
 .booth-preview p span {
   color: #8d9bb5;
   letter-spacing: 0;
+}
+
+/* ĐẠT TARGET: BOOTH ĐƯỢC THẮP SÁNG */
+#booth-scene {
+  position: relative;
+  transition: box-shadow 1.2s ease;
+}
+#booth-scene.is-complete {
+  box-shadow: inset 0 0 0 2px #8beaff, inset 0 0 38px #247fff66,
+    0 0 24px #297bff66;
+}
+#booth-scene.is-complete svg {
+  filter: drop-shadow(0 0 5px #36a9ff99);
+}
+#booth-scene.is-complete [data-part="100"] {
+  filter: drop-shadow(0 0 5px #8ef5ff) drop-shadow(0 0 12px #6c61ff);
+}
+.completion-message {
+  margin: 16px 22px;
+  padding: 18px 20px;
+  border: 1px solid #72e3ff;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #103d64, #22265b);
+  color: #eefeff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.7;
+  box-shadow: 0 0 22px #38b8ff26;
+}
+.completion-message[hidden] {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  #booth-scene { transition: none; }
 }
