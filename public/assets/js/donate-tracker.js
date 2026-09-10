@@ -22,6 +22,18 @@ const stages = [
 function renderBuild(total) {
   el("target").textContent = money(TARGET);
   const percent = (total / TARGET) * 100;
+  // Dùng số tiền thật để xét hoàn thành, không dùng % đã làm tròn.
+  const isComplete = total >= TARGET;
+  el("booth-scene").classList.toggle("is-complete", isComplete);
+  const announcement = el("completion-message");
+  const congratulations = "🎉 Booth đã sẵn sàng triển khai! Hẹn mọi người ở Húc Fest nhé. Cảm ơn Sky đã cùng nhau thắp sáng booth!";
+  announcement.hidden = !isComplete;
+  // Không đọc lại thông báo ở mỗi lần tự cập nhật dữ liệu.
+  if (isComplete && announcement.textContent !== congratulations) {
+    announcement.textContent = congratulations;
+  } else if (!isComplete) {
+    announcement.textContent = "";
+  }
   el("percent").textContent = percent.toLocaleString("vi-VN", {
     maximumFractionDigits: 1,
   });
@@ -34,10 +46,10 @@ function renderBuild(total) {
     : "Chờ mở khóa phần sàn";
   el("next-title").textContent = next
     ? next[1] + " · " + next[0] + "%"
-    : "Booth đã hoàn thiện!";
+    : "Booth đã sẵn sàng triển khai!";
   el("next-detail").textContent = next
     ? "Còn " + money((TARGET * next[0]) / 100 - total) + " để mở khóa mốc này."
-    : `Đã đạt mục tiêu ${money(TARGET)}. Cảm ơn mọi đóng góp của Sky!`;
+    : `Đã đạt mục tiêu ${money(TARGET)}. Hẹn mọi người ở Húc Fest nhé!`;
   document
     .querySelectorAll("[data-part]")
     .forEach((part) =>
